@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Top menu item -->
+    <menuitem
+        id="task_manager_root_menu"
+        name="Task Manager"
+        sequence="10" />
+    <menuitem
+        id="task_manager_task_menu"
+        name="Task"
+        action="action_task_manager"
+        parent="task_manager_root_menu"
+        sequence="10" />
+</odoo>

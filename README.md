@@ -19,4 +19,5 @@ PostgreSQL [first steps](https://wiki.postgresql.org/wiki/First_steps).
 ### Configuration of Python
 [PEP 8 – Style Guide for Python Code](https://peps.python.org/pep-0008/).  
 [Python Crontab](https://pypi.org/project/python-crontab/).
+[PostgreSQL GUI tool - pgAdmin](https://www.postgresql.org/).
 

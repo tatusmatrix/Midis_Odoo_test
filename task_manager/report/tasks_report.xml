@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_task_manager_individual_report" model="ir.actions.report">
+            <field name="name">Task Manager Individual Reports</field>
+            <field name="model">task.manager</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">task_manager.task_individual_reports</field>
+            <field name="report_file">task_manager.task_individual_reports</field>
+            <field name="print_report_name">'Task Manager Individual Reports - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="model_task_manager"></field>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_task_manager_general_report" model="ir.actions.report">
+            <field name="name">Task Manager General Report</field>
+            <field name="model">task.manager</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">task_manager.tasks_general_report</field>
+            <field name="report_file">task_manager.tasks_general_report</field>
+            <field name="print_report_name">'Task Manager General Report - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="model_task_manager"></field>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+    <!-- <report
+        id="task_manager_tasks_report"
+        string="Task Manager task (report)"
+        model="task.manager"
+        report_type="qweb-pdf"
+        name="task_manager.tasks_report"
+        file="task_manager.tasks_report" /> -->
+</odoo>

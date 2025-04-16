@@ -15,8 +15,8 @@
         'views/task_view.xml',
         'views/task_manager_view.xml',
         'security/ir.model.access.csv',
-        #'report/task_report_view.xml',
-        #'report/task_manager_report_view.xml',
+        'report/tasks_report_template.xml',
+        'report/tasks_report.xml',
     ],
     # data files containing optionally loaded demonstration data
     'demo': [

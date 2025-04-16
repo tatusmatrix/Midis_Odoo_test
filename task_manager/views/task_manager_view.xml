@@ -1,14 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="action_task_manager" model="ir.actions.act_window">
+        <field name="name">Task Manager tasks</field>
+        <field name="res_model">task.manager</field>
+        <!-- <field name="view_mode">kanban,tree,form</field> -->
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Add new task to Task Manager</p>
+        </field>
+    </record>
     <!-- Top menu item -->
     <menuitem
         id="task_manager_root_menu"
         name="Task Manager"
+        action="action_task_manager"
         sequence="10" />
     <menuitem
         id="task_manager_task_menu"
-        name="Task"
-        action="action_task_manager"
+        name="New Task"
+        action="action_task_manager_task"
         parent="task_manager_root_menu"
         sequence="10" />
+    <record id="tree_task_manager_view" model="ir.ui.view">
+        <field name="name">task.manager.view.tree</field>
+        <field name="model">task.manager</field>
+        <field name="arch" type="xml">
+            <tree string="Tasks">
+                <field name="name"></field>
+                <field name="description"></field>
+                <field name="assigned_to"></field>
+                <field name="due_date"></field>
+                <field name="priority"></field>
+                <field name="status"></field>
+            </tree>
+        </field>
+    </record>   
+    <!-- <record id="kanban_task_manager_view" model="ir.ui.view">
+        <field name="name">task.manager.view.kanban</field>
+        <field name="model">task.manager</field>
+        <field name="arch" type="xml">
+            <kanban string="Tasks">
+                <templates>
+                    <t t-name="kanban-box">
+                        <sheet>
+                            <group>
+                                <field name="name"></field>
+                                <field name="assigned_to"></field>
+                                <field name="due_date"></field>
+                                <field name="priority"></field>
+                            </group>
+                        </sheet>        
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record> -->
+    <record id="form_task_manager_view" model="ir.ui.view">
+        <field name="name">task.manager.view.form</field>
+        <field name="model">task.manager</field>
+        <field name="arch" type="xml">
+            <form string="Task">
+                <sheet>
+                    <group>
+                        <field name="name"></field>
+                        <field name="description"></field>
+                        <field name="assigned_to"></field>
+                        <field name="due_date"></field>
+                        <field name="priority"></field>
+                        <field name="status"></field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 </odoo>

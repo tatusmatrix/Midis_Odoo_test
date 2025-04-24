@@ -3,7 +3,7 @@
 {
     'name': "Task manager",
     'version': '1.0',
-    'depends': ['base'],
+    'depends': ['base','mail','contacts'],
     'author': "Ta So",
     'category': 'Managers',
     'summary': 'Custom module - Task manager',
@@ -17,6 +17,8 @@
         'security/ir.model.access.csv',
         'report/tasks_report_template.xml',
         'report/tasks_report.xml',
+        'data/ir_cron_data.xml',
+        'data/mail_template_data.xml',
     ],
     # data files containing optionally loaded demonstration data
     'demo': [

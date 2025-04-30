@@ -8,9 +8,19 @@
                         <div class="page">
                             <div class="oe_structure" />
                             <h2>Task Individual Report</h2>
-                            <!-- <br></br>
-                            <p> Name : <span t-field="o.name" />
-                            </p> -->
+                            <br></br>
+                            <p> Task name: <span t-field="o.name" />
+                            </p>
+                            <p> Task description: <span t-field="o.description" />
+                            </p>
+                            <p> Task assigned to: <span t-field="o.assigned_to" />
+                            </p>
+                            <p> Task due date: <span t-field="o.due_date" />
+                            </p>
+                            <p> Task priority: <span t-field="o.priority" />
+                            </p>
+                            <p> Task status: <span t-field="o.status" />
+                            </p>
                         </div>
                     </t>
                 </t>
@@ -18,17 +28,35 @@
         </template>
         <template id="tasks_general_report">
             <t t-call="web.html_container">
-                <t t-foreach="docs" t-as="o">
-                    <t t-call="web.external_layout">
-                        <div class="page">
-                            <div class="oe_structure" />
-                            <h2>Tasks General Report</h2>
-                            <!-- <br></br>
-                            <p> Name : <span t-field="o.name" />
-                            </p> -->
-                        </div>
+                <h2>Tasks General Report</h2>
+                <table>
+                    <tr>
+                        <th> Task name </th>
+                        <th> Task description </th>
+                        <th> Task assigned to </th>
+                        <th> Task due date </th>
+                        <th> Task priority </th>
+                    </tr>
+                    <t t-foreach="docs" t-as="o">
+                        <tr>
+                            <td>
+                                <span t-field="o.name" />
+                            </td>
+                            <td>
+                                <span t-field="o.description" />
+                            </td>
+                            <td>
+                                <span t-field="o.assigned_to" />
+                            </td>
+                            <td>
+                                <span t-field="o.due_date" />
+                            </td>
+                            <td>
+                                <span t-field="o.priority" />
+                            </td>
+                        </tr>
                     </t>
-                </t>
+                </table>
             </t>
         </template>
     </data>

@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="email_template_task_is_about_to_expire" model="mail.template">
-        <field name="name">Email task is about to expire</field>
+        <field name="name">Task Manager: Email task is about to expire</field>
         <field name="model_id" ref="model_task_manager" />
-        <!-- <field name="subject">{{ object.company_id.name }}</field> -->
-        <field name="subject">Task Manager (email subject)</field>
-        <!-- <field name="email_from">{{ (object.user_id.email) }}</field> -->
-        <field name="email_from">...@gmail.com</field>
-        <!-- <field name="partner_to">{{ object.partner_id.id }}</field> -->
-        <field name="email_to">...@gmail.com</field>
-        <field name="description">Task Manager (email description)</field>
+        <field name="subject">Task assigned to You ({{ ctx.get('task_name') }}) is about to expire ({{ ctx.get('task_days_left') }} days left)</field>
+        <field name="email_to">{{ctx.get('task_email_to')}}</field>
+        <field name="description">Sent when task is about to expire</field>
         <field name="body_html" type="html">
             <div>
-                <p> Hello, <br />
-                    <br /> This is our First Email Template! <br />
-                    <br />
-                    <br />Tatjana
-                    Admin <br />
-                    <br />
+                <p> Hello, <t t-out="ctx.get('task_email_to_name') or ''">
+                        EMAIL TO NAME</t><br /> Task assigned to You - <t
+                        t-out="ctx.get('task_name') or ''">
+                        TASK NAME</t> - is about to expire on <t
+                        t-out="ctx.get('task_due_date') or ''">
+                        DUE DATE</t>
                 </p>
+                <br />
+                <br />Tatjana Admin <br />
+                <br />
             </div>
         </field>
     </record>
